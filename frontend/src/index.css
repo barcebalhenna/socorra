@@ -35,8 +35,12 @@
 
   --color-brand-50: #f0fdf7;
   --color-brand-100: #dcfce9;
+  --color-brand-200: #bbf7d0;
+  --color-brand-300: #86efac;
+  --color-brand-400: #4ade80;
   --color-brand-500: #2b6a55;
   --color-brand-600: #1f4e3d;
+  --color-brand-700: #15803d;
   --color-brand-900: #064e3b;
   --color-brand-950: #022c22;
   
@@ -44,9 +48,21 @@
   --color-insight-reteach: #ef4444;
   --color-insight-review: #f59e0b;
 
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-xl: calc(var(--radius) + 4px);
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
+
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+  --shadow-card-hover: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  --shadow-glow: 0 0 15px 0 var(--color-brand-500);
+}
+
+@utility transition-gani {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
 }
 
 @layer base {
@@ -116,7 +132,194 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+/* === COMPONENT STYLES === */
+@layer components {
+  /* === UNIFIED CONTAINER STYLES === */
+  .gani-card {
+    @apply bg-white rounded-2xl border border-slate-100 shadow-sm transition-all duration-200 ease-in-out;
+  }
+
+  .gani-card-hover {
+    @apply hover:shadow-md hover:-translate-y-0.5;
+  }
+
+  .gani-card-interactive {
+    @apply bg-white rounded-2xl border border-slate-100 shadow-sm transition-all duration-200 ease-in-out;
+    @apply hover:shadow-md hover:-translate-y-0.5 cursor-pointer;
+  }
+
+  /* === UNIFIED FORM CONTROLS === */
+  .gani-input {
+    @apply h-11 rounded-xl border border-slate-100 bg-white shadow-sm transition-all duration-200 ease-in-out;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/20 focus-visible:border-brand-500;
+    @apply placeholder:text-slate-400 text-slate-700;
+  }
+
+  .gani-select-trigger {
+    @apply h-11 rounded-xl border border-slate-100 bg-white shadow-sm transition-all duration-200 ease-in-out;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/20 focus-visible:border-brand-500;
+    @apply placeholder:text-slate-400 text-slate-700;
+    @apply justify-between text-left font-medium hover:bg-slate-50;
+  }
+
+  .gani-button {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-200 ease-in-out;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    @apply disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .gani-button-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-200 ease-in-out;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    @apply disabled:pointer-events-none disabled:opacity-50;
+    @apply bg-brand-600 text-white shadow-sm hover:bg-brand-500 hover:shadow-md hover:-translate-y-px;
+    @apply active:translate-y-0 active:shadow-sm focus-visible:ring-brand-500/20;
+  }
+
+  .gani-button-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-200 ease-in-out;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+    @apply disabled:pointer-events-none disabled:opacity-50;
+    @apply bg-white border border-slate-100 text-slate-700 shadow-sm hover:bg-slate-50 hover:shadow-md hover:-translate-y-px;
+    @apply active:translate-y-0 active:shadow-sm focus-visible:ring-slate-500/20;
+  }
+
+  /* === SEGMENTED CONTROLS === */
+  .gani-segmented-container {
+    @apply flex bg-slate-50 p-1 rounded-xl border border-slate-100 shadow-sm;
+  }
+
+  .gani-segmented-button {
+    @apply px-4 py-1.5 text-sm font-semibold rounded-lg transition-all duration-200 border;
+  }
+
+  .gani-segmented-active {
+    @apply bg-white text-brand-700 shadow-sm border-slate-100;
+  }
+
+  .gani-segmented-inactive {
+    @apply border-transparent text-slate-500 hover:text-slate-700 hover:bg-slate-100;
+  }
+
+  /* === TABLE STYLES === */
+  .gani-table-container {
+    @apply bg-white rounded-2xl border border-slate-100 shadow-sm transition-all duration-200 ease-in-out;
+    @apply overflow-hidden;
+  }
+
+  .gani-table-header {
+    @apply bg-slate-50/80 border-b border-slate-100;
+  }
+
+  .gani-table-row {
+    @apply hover:bg-slate-50/80 transition-colors duration-150 border-b border-slate-50;
+  }
+
+  .gani-table-row-interactive {
+    @apply hover:bg-slate-50/80 transition-colors duration-150 border-b border-slate-50;
+    @apply hover:bg-brand-50/30 cursor-pointer;
+  }
+
+  /* === MICRO-INTERACTIONS === */
+  .gani-lift {
+    @apply transition-all duration-200 ease-in-out hover:shadow-md hover:-translate-y-0.5;
+  }
+
+  .gani-lift-subtle {
+    @apply transition-all duration-200 ease-in-out hover:shadow-sm hover:-translate-y-px;
+  }
+
+  .gani-glow-focus {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/20 focus-visible:border-brand-500;
+  }
+
+  /* === RESPONSIVE GRID UTILITIES === */
+  .gani-grid-responsive {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6;
+  }
+
+  .gani-grid-metrics {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6;
+  }
+
+  /* === TEXT HIERARCHIES === */
+  .gani-heading-page {
+    @apply text-3xl font-extrabold tracking-tight text-slate-800;
+  }
+
+  .gani-heading-section {
+    @apply text-xl font-bold text-slate-800;
+  }
+
+  .gani-text-body {
+    @apply text-slate-600;
+  }
+
+  .gani-text-muted {
+    @apply text-slate-500;
+  }
+
+  .gani-text-subtle {
+    @apply text-slate-400;
+  }
+
+  /* === ANIMATION PRESETS === */
+  .gani-animate-in {
+    @apply animate-in fade-in duration-500;
+  }
+
+  .gani-animate-in-fast {
+    @apply animate-in fade-in duration-300;
+  }
+
+  /* === STATUS COLORS === */
+  .gani-status-success {
+    @apply text-insight-enrich bg-green-50 border-green-100;
+  }
+
+  .gani-status-warning {
+    @apply text-insight-review bg-amber-50 border-amber-100;
+  }
+
+  .gani-status-error {
+    @apply text-insight-reteach bg-red-50 border-red-100;
+  }
+
+  /* === TOOLBAR CONTAINERS === */
+  .gani-toolbar {
+    @apply flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 p-4;
+    @apply bg-white rounded-2xl border border-slate-100 shadow-sm transition-all duration-200 ease-in-out;
+  }
+
+  .gani-toolbar-section {
+    @apply flex flex-col sm:flex-row items-start sm:items-center gap-3 w-full lg:w-auto;
+  }
+
+  /* === COMPONENT-SPECIFIC OVERRIDES === */
+  .gani-metric-card {
+    @apply bg-white rounded-2xl border border-slate-100 shadow-sm transition-all duration-200 ease-in-out;
+    @apply hover:shadow-md hover:-translate-y-0.5 p-6 cursor-default;
+  }
+
+  .gani-metric-icon {
+    @apply p-3 bg-brand-50 text-brand-600 rounded-xl transition-colors duration-300 group-hover:bg-brand-100;
+  }
+
+  .gani-action-card {
+    @apply bg-white rounded-2xl border border-slate-100 shadow-sm transition-all duration-200 ease-in-out;
+    @apply p-8 relative overflow-hidden;
+  }
+
+  .gani-action-card-bg {
+    @apply absolute top-0 right-0 p-8 opacity-10 pointer-events-none transition-transform duration-500 group-hover:scale-110;
   }
 }

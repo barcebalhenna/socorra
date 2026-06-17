@@ -26,7 +26,7 @@ export function AIInsightsPanel({ insights }: AIInsightsPanelProps) {
   };
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden h-full flex flex-col">
+    <div className="bg-white rounded-2xl border border-slate-200/60 shadow-sm overflow-hidden h-full flex flex-col">
       <div className="bg-gradient-to-r from-brand-50/50 to-white px-6 py-5 border-b border-slate-100 flex items-center gap-3">
         <div className="p-2 bg-brand-100 text-brand-600 rounded-xl">
           <Sparkles className="w-5 h-5" />
@@ -39,9 +39,9 @@ export function AIInsightsPanel({ insights }: AIInsightsPanelProps) {
       
       <div className="divide-y divide-slate-100 flex-1">
         {insights.map((insight) => (
-          <div key={insight.id} className="p-6 flex flex-col md:flex-row gap-5 items-start md:items-center justify-between hover:bg-slate-50/50 transition-colors">
+          <div key={insight.id} className="p-6 flex flex-col md:flex-row gap-5 items-start md:items-center justify-between hover:bg-slate-50/50 transition-all duration-200 hover:-translate-x-0.5">
             <div className="flex gap-4 items-start">
-              <div className="mt-1 p-2 rounded-xl bg-white border border-slate-100 shadow-sm">
+              <div className="mt-1 p-2 rounded-xl bg-white border border-slate-200/60 shadow-sm">
                 {getIcon(insight.type)}
               </div>
               <div>
@@ -56,7 +56,7 @@ export function AIInsightsPanel({ insights }: AIInsightsPanelProps) {
             </div>
             
             {insight.suggestedAction && (
-              <button className="shrink-0 inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-brand-700 bg-brand-50 rounded-xl hover:bg-brand-100 transition-colors group">
+              <button className="shrink-0 inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-brand-700 bg-brand-50 rounded-xl hover:bg-brand-100 transition-all duration-200 hover:-translate-y-px active:translate-y-0 group">
                 {insight.suggestedAction}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </button>

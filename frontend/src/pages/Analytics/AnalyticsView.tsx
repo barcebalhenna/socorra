@@ -22,15 +22,15 @@ export default function AnalyticsView() {
       </div>
 
       {/* Tab Navigation */}
-      <div className="flex gap-2 border-b border-slate-200">
+      <div className="flex bg-slate-50 p-1 rounded-xl border border-slate-200/60 shadow-sm w-fit">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`px-4 py-2 font-medium text-sm transition-all duration-200 border-b-2 ${
+            className={`px-4 py-1.5 font-semibold text-sm rounded-lg transition-all duration-200 border ${
               activeTab === tab.id
-                ? 'border-brand-600 text-brand-600'
-                : 'border-transparent text-slate-600 hover:text-slate-900'
+                ? 'bg-white text-brand-700 shadow-sm border-slate-200/60'
+                : 'border-transparent text-slate-500 hover:text-slate-700 hover:bg-slate-100'
             }`}
           >
             {tab.label}
@@ -41,25 +41,25 @@ export default function AnalyticsView() {
       {/* Tab Content */}
       <div className="mt-6">
         {activeTab === 'quarter' && (
-          <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+          <div className="p-6 bg-white rounded-2xl border border-slate-200/60 shadow-sm animate-in fade-in duration-300">
             <h2 className="text-2xl font-bold text-slate-900">Quarter Overview</h2>
           </div>
         )}
 
         {activeTab === 'assessment' && (
-          <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+          <div className="p-6 bg-white rounded-2xl border border-slate-200/60 shadow-sm animate-in fade-in duration-300">
             <h2 className="text-2xl font-bold text-slate-900">Assessment</h2>
           </div>
         )}
 
         {activeTab === 'students' && (
-          <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+          <div className="p-6 bg-white rounded-2xl border border-slate-200/60 shadow-sm animate-in fade-in duration-300">
             <h2 className="text-2xl font-bold text-slate-900">Students</h2>
           </div>
         )}
 
         {activeTab === 'sections' && (
-          <div className="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+          <div className="p-6 bg-white rounded-2xl border border-slate-200/60 shadow-sm animate-in fade-in duration-300">
             <h2 className="text-2xl font-bold text-slate-900">Sections</h2>
           </div>
         )}

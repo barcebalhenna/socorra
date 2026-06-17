@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { Search, BookOpen, FileSpreadsheet, Upload, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -44,7 +44,7 @@ export default function ClassesView() {
 
       {/* Toolbar / Filters */}
       <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
-        <div className="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto p-2 bg-white rounded-2xl border border-slate-200 shadow-sm">
+        <div className="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto p-2 bg-white rounded-2xl border border-slate-200/60 shadow-sm">
           
           {/* Class Selector using Select UI */}
           <div className="flex items-center gap-2 pl-2">
@@ -67,14 +67,14 @@ export default function ClassesView() {
           <div className="hidden sm:block w-px h-6 bg-slate-200"></div>
 
           {/* Quarterly Tabs */}
-          <div className="flex bg-slate-50 p-1 rounded-xl border border-slate-100">
+          <div className="flex bg-slate-50 p-1 rounded-xl border border-slate-200/60 shadow-sm">
             {['Q1', 'Q2', 'Q3', 'Q4'].map((q) => (
               <button
                 key={q}
                 onClick={() => setActiveQuarter(q)}
                 className={`px-4 py-1.5 text-sm font-semibold rounded-lg transition-all duration-200 border ${
                   activeQuarter === q 
-                  ? 'bg-white text-brand-700 shadow-sm border-slate-200/50' 
+                  ? 'bg-white text-brand-700 shadow-sm border-slate-200/60' 
                   : 'text-slate-500 hover:text-slate-700 hover:bg-slate-100 border-transparent'
                 }`}
               >
@@ -94,7 +94,7 @@ export default function ClassesView() {
               className="pl-9 bg-white h-11 border-slate-200 rounded-xl shadow-sm focus-visible:ring-brand-600" 
             />
           </div>
-          <Button variant="outline" className="gap-2 text-brand-700 border-brand-200 hover:bg-brand-50 h-11 rounded-xl shadow-sm bg-white">
+          <Button variant="brand-outline" className="gap-2 h-11 rounded-xl shadow-sm bg-white">
             <FileSpreadsheet size={16} />
             Export
           </Button>
@@ -102,7 +102,7 @@ export default function ClassesView() {
       </div>
 
       {/* Main Roster Data Grid */}
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+      <div className="bg-white rounded-2xl border border-slate-200/60 shadow-sm overflow-hidden">
         <div className="overflow-x-auto">
           <Table>
             <TableHeader className="bg-slate-50 border-b border-slate-200">
@@ -136,21 +136,21 @@ export default function ClassesView() {
             <TableBody>
 
               {/* HIGHEST POSSIBLE SCORE */}
-              <TableRow className="bg-slate-100/80 hover:bg-slate-100/80 border-b border-slate-200 shadow-inner">
-                <TableCell colSpan={2} className="font-extrabold text-right text-slate-600 py-4">
+              <TableRow className="bg-gradient-to-r from-slate-100 to-slate-50 hover:from-slate-100 hover:to-slate-50 border-b-2 border-slate-200 shadow-inner">
+                <TableCell colSpan={2} className="font-extrabold text-right text-slate-600 py-4 tabular-nums">
                   HIGHEST POSSIBLE SCORE
                 </TableCell>
-                <TableCell className="text-center font-extrabold text-slate-800">{classData.highestPossibleScores.ww1}</TableCell>
-                <TableCell className="text-center font-extrabold text-slate-800">{classData.highestPossibleScores.ww2}</TableCell>
-                <TableCell className="text-center font-extrabold text-slate-800">{classData.highestPossibleScores.ww3}</TableCell>
-                <TableCell className="text-center font-extrabold text-slate-900 border-l border-slate-200 bg-slate-200/50">
+                <TableCell className="text-center font-extrabold text-slate-800 tabular-nums">{classData.highestPossibleScores.ww1}</TableCell>
+                <TableCell className="text-center font-extrabold text-slate-800 tabular-nums">{classData.highestPossibleScores.ww2}</TableCell>
+                <TableCell className="text-center font-extrabold text-slate-800 tabular-nums">{classData.highestPossibleScores.ww3}</TableCell>
+                <TableCell className="text-center font-extrabold text-slate-900 border-l border-slate-200 bg-slate-200/50 tabular-nums">
                   {classData.highestPossibleScores.ww1 + classData.highestPossibleScores.ww2 + classData.highestPossibleScores.ww3}
                 </TableCell>
-                <TableCell className="text-center font-extrabold text-slate-900 bg-slate-200/50">100.00</TableCell>
+                <TableCell className="text-center font-extrabold text-slate-900 bg-slate-200/50 tabular-nums">100.00</TableCell>
               </TableRow>
               
               {/* MALE GROUP HEADER */}
-              <TableRow className="bg-brand-50/40 hover:bg-brand-50/40 border-y border-slate-100">
+              <TableRow className="bg-brand-50/30 hover:bg-brand-50/30 border-y border-slate-200/60 border-l-2 border-l-brand-500">
                 <TableCell colSpan={7} className="font-bold text-brand-600 py-3 px-6 text-xs tracking-wider">
                   MALE
                 </TableCell>
@@ -175,7 +175,7 @@ export default function ClassesView() {
               ))}
 
               {/* FEMALE GROUP HEADER */}
-              <TableRow className="bg-brand-50/40 hover:bg-brand-50/40 border-y border-slate-100">
+              <TableRow className="bg-brand-50/30 hover:bg-brand-50/30 border-y border-slate-200/60 border-l-2 border-l-brand-500">
                 <TableCell colSpan={7} className="font-bold text-brand-600 py-3 px-6 text-xs tracking-wider mt-4">
                   FEMALE
                 </TableCell>

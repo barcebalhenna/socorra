@@ -65,10 +65,10 @@ export default function Step2Competencies() {
         </div>
       </div>
 
-      <div className="border border-slate-200 rounded-lg flex flex-col min-h-0 bg-white shadow-sm flex-1 overflow-hidden">
+      <div className="border border-slate-200/60 rounded-2xl flex flex-col min-h-0 bg-white shadow-sm flex-1 overflow-hidden">
         <div className="overflow-x-auto overflow-y-auto flex-1">
           <table className="w-full text-sm border-collapse">
-            <thead className="bg-slate-50 sticky top-0 z-10 text-xs text-slate-700 shadow-sm">
+            <thead className="bg-slate-50 sticky top-0 z-10 text-xs uppercase tracking-wider font-semibold text-slate-500 shadow-sm">
               <tr className="border-b border-slate-200 text-center">
                 <th className="p-2 border-r border-slate-200 align-middle w-[250px]" rowSpan={2}>Competency</th>
                 <th className="p-2 border-r border-slate-200 align-middle w-20" rowSpan={2}>No. of<br/>Meetings</th>
@@ -145,7 +145,7 @@ export default function Step2Competencies() {
                 );
               })}
             </tbody>
-            <tfoot className="bg-slate-50 sticky bottom-0 z-10 font-bold text-sm shadow-[0_-1px_2px_rgba(0,0,0,0.05)] border-t border-slate-200">
+            <tfoot className="bg-slate-50 sticky bottom-0 z-10 font-bold text-sm shadow-[0_-1px_0_rgba(0,0,0,0.05)] border-t border-slate-200">
               <tr>
                 <td className="p-3 border-r border-slate-200 text-center uppercase tracking-widest text-slate-700">Total</td>
                 <td className="p-3 border-r border-slate-200 text-center text-brand-700">{totalMeetings}</td>

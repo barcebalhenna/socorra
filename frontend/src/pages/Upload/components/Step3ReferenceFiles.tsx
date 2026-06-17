@@ -11,8 +11,8 @@ export default function Step3ReferenceFiles() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Question Paper Dropzone */}
-        <div className="border-2 border-dashed border-slate-300 rounded-xl p-6 flex flex-col items-center justify-center text-center hover:border-brand-500 hover:bg-brand-50/50 transition-all cursor-pointer">
-          <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mb-4 text-slate-500">
+        <div className="border-2 border-dashed border-slate-200/60 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:border-brand-500 hover:bg-brand-50/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
+          <div className="w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center mb-4 text-slate-500">
             <FileText size={24} />
           </div>
           <h4 className="font-bold text-slate-700">Question Paper</h4>
@@ -21,8 +21,8 @@ export default function Step3ReferenceFiles() {
         </div>
 
         {/* Answer Key Dropzone */}
-        <div className="border-2 border-dashed border-slate-300 rounded-xl p-6 flex flex-col items-center justify-center text-center hover:border-brand-500 hover:bg-brand-50/50 transition-all cursor-pointer">
-          <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mb-4 text-slate-500">
+        <div className="border-2 border-dashed border-slate-200/60 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:border-brand-500 hover:bg-brand-50/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 cursor-pointer">
+          <div className="w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center mb-4 text-slate-500">
             <ListChecks size={24} />
           </div>
           <h4 className="font-bold text-slate-700">Answer Key</h4>

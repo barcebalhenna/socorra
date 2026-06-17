@@ -129,7 +129,7 @@ export default function Step5Review() {
           <div
             role="separator"
             aria-label="Resize panels"
-            className="w-2 bg-slate-200 hover:bg-slate-300 cursor-col-resize transition-colors"
+            className="w-2 bg-slate-200 hover:bg-brand-300 cursor-col-resize transition-colors"
             onPointerDown={handleResizeStart}
           />
 
@@ -187,13 +187,13 @@ export default function Step5Review() {
           <div className="bg-amber-100 text-amber-800 px-3 py-1.5 rounded-lg text-sm font-semibold border border-amber-200">
             {flaggedCount} Papers require manual review
           </div>
-          <div className="inline-flex items-center gap-2 rounded-lg bg-slate-100 p-1 text-sm">
+          <div className="inline-flex items-center gap-2 rounded-xl border border-slate-200/60 shadow-sm bg-slate-50 p-1 text-sm">
             <button
               type="button"
               onClick={() => setReviewFilter('all')}
               className={`px-3 py-1 rounded-md font-semibold transition-colors ${
                 reviewFilter === 'all'
-                  ? 'bg-white text-slate-900 shadow-sm border border-slate-200'
+                  ? 'bg-white text-brand-700 shadow-sm border border-slate-200/60'
                   : 'text-slate-500 hover:text-slate-700'
               }`}
             >
@@ -204,7 +204,7 @@ export default function Step5Review() {
               onClick={() => setReviewFilter('flagged')}
               className={`px-3 py-1 rounded-md font-semibold transition-colors ${
                 reviewFilter === 'flagged'
-                  ? 'bg-white text-slate-900 shadow-sm border border-slate-200'
+                  ? 'bg-white text-brand-700 shadow-sm border border-slate-200/60'
                   : 'text-slate-500 hover:text-slate-700'
               }`}
             >
@@ -214,9 +214,9 @@ export default function Step5Review() {
         </div>
       </div>
 
-      <div className="border border-slate-200 rounded-lg overflow-hidden bg-white max-h-[300px] overflow-y-auto">
+      <div className="border border-slate-200/60 rounded-2xl overflow-hidden shadow-sm bg-white max-h-[300px] overflow-y-auto">
         <table className="w-full text-left text-sm">
-          <thead className="bg-slate-50 text-slate-600 font-semibold border-b border-slate-200 sticky top-0">
+          <thead className="bg-slate-50 text-slate-500 text-xs uppercase tracking-wider font-semibold border-b border-slate-200 sticky top-0">
             <tr>
               <th className="p-3">Student Name (Detected)</th>
               <th className="p-3 text-left pr-10">Confidence</th>
@@ -231,7 +231,7 @@ export default function Step5Review() {
               const StatusIcon = statusConfig.Icon;
 
               return (
-                <tr key={student.id} className="hover:bg-slate-50/50">
+                <tr key={student.id} className="hover:bg-slate-50/80 transition-colors duration-150">
                   <td className="p-3 font-medium text-slate-900">{student.name}</td>
                   <td className="p-3 text-left pr-10">
                     <span className={`font-bold px-2 py-1 rounded ${getConfidenceStyles(student.confidence)}`}>

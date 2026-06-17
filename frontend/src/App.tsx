@@ -7,63 +7,41 @@ import { twMerge } from 'tailwind-merge';
 import ClassesView from './pages/Classes/ClassesView';
 import UploadView from './pages/Upload/UploadView';
 import AnalyticsView from './pages/Analytics/AnalyticsView';
+import { MetricCard } from './components/ui/metric-card';
+import { ActionCard } from './components/ui/action-card';
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const StatCard = ({ title, value, icon, trend, trendLabel }: any) => (
-  <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition-all hover:shadow-md">
-    <div className="flex justify-between items-start">
-      <div>
-        <h3 className="font-medium text-slate-500 text-sm mb-1">{title}</h3>
-        <p className="text-3xl font-bold tracking-tight text-slate-800">{value}</p>
-      </div>
-      <div className="p-3 bg-brand-50 text-brand-600 rounded-xl">
-        {icon}
-      </div>
-    </div>
-    {(trend || trendLabel) && (
-      <div className="mt-4 flex items-center text-sm">
-        {trend && (
-          <span className={cn("font-medium", trend > 0 ? "text-insight-enrich" : "text-slate-500")}>
-            {trend > 0 ? `+${trend}%` : trend}%
-          </span>
-        )}
-        <span className="text-slate-400 ml-2">{trendLabel}</span>
-      </div>
-    )}
-  </div>
-);
-
 const Dashboard = () => (
-  <div className="space-y-8 animate-in fade-in duration-500">
+  <div className="space-y-8 gani-animate-in">
     <div>
-      <h2 className="text-3xl font-extrabold tracking-tight text-slate-800">Welcome back, Teacher! 👋</h2>
-      <p className="text-slate-500 mt-2 text-lg">Here is a quick overview of your classes today.</p>
+      <h2 className="gani-heading-page">Welcome back, Teacher! 👋</h2>
+      <p className="gani-text-body mt-2 text-lg">Here is a quick overview of your classes today.</p>
     </div>
     
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <StatCard 
+    <div className="gani-grid-metrics">
+      <MetricCard 
         title="Pending Papers" 
         value="2" 
         icon={<Clock size={24} />} 
         trendLabel="Needs checking" 
       />
-      <StatCard 
+      <MetricCard 
         title="Students Assessed" 
         value="452" 
         icon={<Users size={24} />} 
         trend={12} 
         trendLabel="from last week" 
       />
-      <StatCard 
+      <MetricCard 
         title="Target to Reteach" 
         value="5 Topics" 
         icon={<AlertCircle size={24} className="text-insight-reteach" />} 
         trendLabel="Needs attention" 
       />
-      <StatCard 
+      <MetricCard 
         title="Avg. Performance" 
         value="84%" 
         icon={<CheckCircle2 size={24} />} 
@@ -72,19 +50,18 @@ const Dashboard = () => (
       />
     </div>
 
-    <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm mt-8 relative overflow-hidden">
-      <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
-        <Upload size={120} />
-      </div>
-      <h3 className="text-xl font-bold text-slate-800 mb-2">Ready to check papers?</h3>
-      <p className="text-slate-500 mb-6 max-w-xl">
-        Upload handwritten scanned answer sheets and our AI logic will read the answers, map it to competencies, and show you an item analysis. Let's make checking fun and fast.
-      </p>
-      <Link to="/upload" className="inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-sm">
-        <Upload size={20} />
-        Start Grading
-      </Link>
-    </div>
+    <ActionCard
+      title="Ready to check papers?"
+      description="Upload handwritten scanned answer sheets and our AI logic will read the answers, map it to competencies, and show you an item analysis. Let's make checking fun and fast."
+      backgroundIcon={<Upload size={120} />}
+      action={
+        <Link to="/upload" className="gani-button-primary h-11 px-6 py-3">
+          <Upload size={20} />
+          Start Grading
+        </Link>
+      }
+      className="mt-8"
+    />
   </div>
 );
 
@@ -110,7 +87,7 @@ const SidebarItem = ({ to, icon: Icon, children }: { to: string, icon: any, chil
 
 const Sidebar = () => {
   return (
-    <div className="w-72 bg-white border-r border-slate-200 min-h-screen p-5 flex flex-col relative z-10 shadow-[4px_0_24px_rgba(0,0,0,0.02)]">
+    <div className="w-72 bg-white border-r border-slate-100 min-h-screen p-5 flex flex-col relative z-10 shadow-[4px_0_24px_rgba(0,0,0,0.02)]">
       <div className="flex items-center gap-3 px-2 py-4 mb-6">
         <div className="bg-brand-600 p-2 rounded-xl text-white shadow-md shadow-brand-500/30">
           <BookOpen size={24} />
@@ -140,7 +117,7 @@ export default function App() {
     <BrowserRouter>
       <div className="flex h-screen bg-slate-50 font-sans selection:bg-brand-100 selection:text-brand-900 overflow-hidden">
         <Sidebar />
-        <main className="flex-1 px-6 py-6 overflow-auto">
+        <main className="flex-1 px-4 md:px-6 lg:px-8 py-6 overflow-auto">
           <div className="max-w-6xl mx-auto h-full">
             <Routes>
               <Route path="/" element={<Dashboard />} />

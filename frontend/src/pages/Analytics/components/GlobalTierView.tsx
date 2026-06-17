@@ -5,13 +5,13 @@ import { Users, GraduationCap, Percent, BookOpen } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const StatCard = ({ title, value, icon, trendLabel, trendClass }: any) => (
-  <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition-all hover:shadow-md">
+  <div className="bg-white p-6 rounded-2xl border border-slate-200/60 shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 cursor-default group">
     <div className="flex justify-between items-start">
       <div>
         <h3 className="font-medium text-slate-500 text-sm mb-1">{title}</h3>
         <p className="text-3xl font-bold tracking-tight text-slate-800">{value}</p>
       </div>
-      <div className="p-3 bg-brand-50 text-brand-600 rounded-xl">
+      <div className="p-3 bg-brand-50 text-brand-600 rounded-xl transition-colors duration-300 group-hover:bg-brand-100">
         {icon}
       </div>
     </div>
@@ -63,7 +63,7 @@ export function GlobalTierView({ data }: GlobalTierViewProps) {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Class Comparisons */}
-        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm lg:col-span-1 flex flex-col">
+        <div className="bg-white p-6 rounded-2xl border border-slate-200/60 shadow-sm lg:col-span-1 flex flex-col">
           <h3 className="text-lg font-bold text-slate-800 mb-6">Class Comparisons</h3>
           <div className="space-y-6 flex-1">
             {data.classComparisons.map((cls) => (

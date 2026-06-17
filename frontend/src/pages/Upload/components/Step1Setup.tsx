@@ -13,7 +13,7 @@ export default function Step1Setup() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label className="text-slate-700">Select Class target</Label>
-            <select className="w-full h-10 px-3 rounded-md border border-slate-200 bg-slate-50 text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all">
+            <select className="w-full h-11 px-3 rounded-xl border border-slate-200/60 bg-slate-50 text-slate-900 shadow-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500">
               <option value="">-- Choose a class --</option>
               <option value="TLE">TLE 8 - CAPISTRANO</option>
               <option value="MATH">MATH 10 - RIZAL</option>
@@ -22,7 +22,7 @@ export default function Step1Setup() {
           </div>
           <div className="space-y-2">
             <Label className="text-slate-700">Quarter</Label>
-            <select className="w-full h-10 px-3 rounded-md border border-slate-200 bg-slate-50 text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all">
+            <select className="w-full h-11 px-3 rounded-xl border border-slate-200/60 bg-slate-50 text-slate-900 shadow-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500">
               <option value="">-- Select quarter --</option>
               <option value="Q1">Quarter 1</option>
               <option value="Q2">Quarter 2</option>
@@ -34,20 +34,20 @@ export default function Step1Setup() {
 
         <div className="space-y-2">
           <Label className="text-slate-700">Assessment Title</Label>
-          <Input placeholder="e.g., First Quarter Long Quiz 1" className="bg-slate-50 h-10" />
+          <Input placeholder="e.g., First Quarter Long Quiz 1" className="bg-slate-50" />
         </div>
 
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label className="text-slate-700">Assessment Type</Label>
-            <select className="w-full h-10 px-3 rounded-md border border-slate-200 bg-slate-50 text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all">
+            <select className="w-full h-11 px-3 rounded-xl border border-slate-200/60 bg-slate-50 text-slate-900 shadow-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500">
               <option value="formative">Formative Assessment</option>
               <option value="summative">Summative Assessment</option>
             </select>
           </div>
           <div className="space-y-2">
             <Label className="text-slate-700">Total Items / Highest Possible Score</Label>
-            <Input type="number" placeholder="5 - 50 only" className="bg-slate-50 h-10" min="5" max="50" />
+            <Input type="number" placeholder="5 - 50 only" className="bg-slate-50" min="5" max="50" />
           </div>
         </div>
       </div>

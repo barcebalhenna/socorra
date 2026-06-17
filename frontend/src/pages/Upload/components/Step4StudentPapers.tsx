@@ -9,7 +9,7 @@ export default function Step4StudentPapers() {
         <p className="text-slate-500 text-sm">Upload bulk PDF scans or images of your students' work.</p>
       </div>
 
-      <div className="border-2 border-dashed border-brand-300 rounded-xl p-8 flex flex-col items-center justify-center text-center bg-brand-50/30 hover:bg-brand-50 transition-all cursor-pointer">
+      <div className="border-2 border-dashed border-brand-300 rounded-2xl p-8 flex flex-col items-center justify-center text-center bg-brand-50/30 hover:bg-brand-50 hover:shadow-[0_0_15px_0_var(--color-brand-500)] transition-all duration-200 cursor-pointer">
         <div className="w-16 h-16 bg-brand-100 rounded-full flex items-center justify-center mb-4 text-brand-600">
           <UploadCloud size={32} />
         </div>
@@ -19,7 +19,7 @@ export default function Step4StudentPapers() {
       </div>
       
       {/* Pretend file list */}
-      <div className="bg-slate-50 rounded-lg p-4 border border-slate-200">
+      <div className="bg-slate-50 rounded-xl p-4 border border-slate-200/60 shadow-sm">
         <p className="text-sm font-semibold text-slate-600 mb-2">0 files selected</p>
         <div className="text-center py-4 text-slate-400 text-sm">
           Awaiting files to begin grading process.
