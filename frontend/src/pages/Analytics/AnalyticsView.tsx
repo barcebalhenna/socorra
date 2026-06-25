@@ -1,12 +1,14 @@
 import { useState } from 'react';
-import { Button } from '@/components/ui/button';
+import GradingSummaryView from './GradingSummaryView';
+import QuarterOverview from './components/QuarterOverview';
 
-type AnalyticsTab = 'assessment' | 'quarter' | 'students' | 'sections';
+type AnalyticsTab = 'grading' | 'assessment' | 'quarter' | 'students' | 'sections';
 
 export default function AnalyticsView() {
-  const [activeTab, setActiveTab] = useState<AnalyticsTab>('quarter');
+  const [activeTab, setActiveTab] = useState<AnalyticsTab>('grading');
 
   const tabs: { id: AnalyticsTab; label: string }[] = [
+    { id: 'grading', label: 'Grading Summary' },
     { id: 'quarter', label: 'Quarter Overview' },
     { id: 'assessment', label: 'Assessment' },
     { id: 'students', label: 'Students' },
@@ -22,12 +24,12 @@ export default function AnalyticsView() {
       </div>
 
       {/* Tab Navigation */}
-      <div className="flex bg-slate-50 p-1 rounded-xl border border-slate-200/60 shadow-sm w-fit">
+      <div className="flex bg-slate-50 p-1 rounded-xl border border-slate-200/60 shadow-sm w-fit overflow-x-auto">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`px-4 py-1.5 font-semibold text-sm rounded-lg transition-all duration-200 border ${
+            className={`px-4 py-1.5 font-semibold text-sm rounded-lg transition-all duration-200 border whitespace-nowrap ${
               activeTab === tab.id
                 ? 'bg-white text-brand-700 shadow-sm border-slate-200/60'
                 : 'border-transparent text-slate-500 hover:text-slate-700 hover:bg-slate-100'
@@ -40,11 +42,9 @@ export default function AnalyticsView() {
 
       {/* Tab Content */}
       <div className="mt-6">
-        {activeTab === 'quarter' && (
-          <div className="p-6 bg-white rounded-2xl border border-slate-200/60 shadow-sm animate-in fade-in duration-300">
-            <h2 className="text-2xl font-bold text-slate-900">Quarter Overview</h2>
-          </div>
-        )}
+        {activeTab === 'grading' && <GradingSummaryView />}
+
+        {activeTab === 'quarter' && <QuarterOverview />}
 
         {activeTab === 'assessment' && (
           <div className="p-6 bg-white rounded-2xl border border-slate-200/60 shadow-sm animate-in fade-in duration-300">
