@@ -14,7 +14,7 @@ import {
 } from "recharts";
 import {
   subjectMPSData,
-  quarterlyTrendData,
+  termTrendData,
   sectionMPSData,
   leastLearnedData,
   analyticsKPIs,
@@ -558,10 +558,10 @@ export default function QuarterOverview() {
         <div className="flex items-start justify-between mb-5 flex-wrap gap-3">
           <div>
             <h2 className="text-[#0a2540]" style={{ fontSize: "1rem", fontWeight: 700 }}>
-              MPS Quarterly Trend
+              MPS Term Trend
             </h2>
             <p className="text-[13px] text-[#6b7a8d] mt-0.5">
-              Progress of key subjects across Q1–Q4 for {academicYear}.
+              Progress of key subjects across Term 1–Term 3 for {academicYear}.
             </p>
           </div>
           <div className="flex items-center gap-1.5 text-[12px] text-[#9aa5b4]">
@@ -571,12 +571,12 @@ export default function QuarterOverview() {
         </div>
         <ResponsiveContainer width="100%" height={260}>
           <LineChart
-            data={quarterlyTrendData}
+            data={termTrendData}
             margin={{ top: 4, right: 16, left: -10, bottom: 4 }}
           >
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f4f9" />
             <XAxis
-              dataKey="quarter"
+              dataKey="term"
               tick={{ fill: "#6b7a8d", fontSize: 12 }}
               axisLine={false}
               tickLine={false}
@@ -708,7 +708,7 @@ export default function QuarterOverview() {
                   "Subject",
                   "Grade Level",
                   "Section",
-                  "Quarter",
+                  "Term",
                   "% Struggling",
                   "Intervention",
                 ].map((h) => (
@@ -798,7 +798,7 @@ export default function QuarterOverview() {
                         </span>
                       </td>
                       <td className="px-4 py-4 text-center">
-                        <span className="text-[13px] text-[#6b7a8d]">{row.quarter}</span>
+                        <span className="text-[13px] text-[#6b7a8d]">{row.term}</span>
                       </td>
                       <td className="px-4 py-4">
                         <StruggleMeter pct={row.percentStruggling} />
