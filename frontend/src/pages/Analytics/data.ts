@@ -23,40 +23,39 @@ export interface StudentGrade {
   id: string;
   name: string;
   lrn: string;
-  q1: number | null;
-  q2: number | null;
-  q3: number | null;
-  q4: number | null;
+  t1: number | null;
+  t2: number | null;
+  t3: number | null;
 }
 
 const MOCK_STUDENTS: StudentGrade[] = [
-  { id: "1", name: "Abad, Maria Clarita", lrn: "102345678901", q1: 76, q2: 74, q3: 76, q4: 76 },
-  { id: "2", name: "Aquino, Juan Miguel", lrn: "102345678902", q1: 94, q2: 91, q3: 87, q4: 94 },
-  { id: "3", name: "Bautista, Lourdes Mae", lrn: "102345678903", q1: 84, q2: 83, q3: 89, q4: 81 },
-  { id: "4", name: "Cruz, Reginald Paolo", lrn: "102345678904", q1: 83, q2: 75, q3: 82, q4: null },
-  { id: "5", name: "De Leon, Angelica Joy", lrn: "102345678905", q1: 95, q2: 94, q3: 97, q4: 90 },
-  { id: "6", name: "Enriquez, Francis Andrei", lrn: "102345678906", q1: 78, q2: 75, q3: 81, q4: 77 },
-  { id: "7", name: "Flores, Hannah Grace", lrn: "102345678907", q1: 86, q2: 82, q3: 81, q4: 78 },
-  { id: "8", name: "Garcia, Kristopher Jay", lrn: "102345678908", q1: 87, q2: 95, q3: 91, q4: 94 },
-  { id: "9", name: "Hernandez, Sofia Lyn", lrn: "102345678909", q1: 92, q2: 95, q3: 95, q4: 86 },
-  { id: "10", name: "Ignacio, Robert Louis", lrn: "102345678910", q1: 93, q2: 95, q3: 97, q4: 92 },
-  { id: "11", name: "Jimenez, Patricia Ann", lrn: "102345678911", q1: 88, q2: 86, q3: 84, q4: 87 },
-  { id: "12", name: "Kalaw, Benjamin Jose", lrn: "102345678912", q1: 79, q2: 77, q3: 78, q4: 80 },
-  { id: "13", name: "Lopez, Catherine May", lrn: "102345678913", q1: 91, q2: 93, q3: 90, q4: 92 },
-  { id: "14", name: "Mendoza, Rafael Luis", lrn: "102345678914", q1: 85, q2: 87, q3: 86, q4: 88 },
-  { id: "15", name: "Navarro, Isabel Marie", lrn: "102345678915", q1: 96, q2: 94, q3: 95, q4: 97 },
-  { id: "16", name: "Ocampo, Daniel Marco", lrn: "102345678916", q1: 74, q2: 72, q3: 73, q4: 75 },
-  { id: "17", name: "Perez, Jasmine Nicole", lrn: "102345678917", q1: 82, q2: 84, q3: 83, q4: 85 },
-  { id: "18", name: "Reyes, Emmanuel James", lrn: "102345678918", q1: 90, q2: 92, q3: 91, q4: 93 },
-  { id: "19", name: "Santos, Maricel Rose", lrn: "102345678919", q1: 77, q2: 79, q3: 78, q4: 76 },
-  { id: "20", name: "Torres, Adrian Paul", lrn: "102345678920", q1: 95, q2: 96, q3: 94, q4: 95 },
-  { id: "21", name: "Uy, Michelle Grace", lrn: "102345678921", q1: 89, q2: 88, q3: 90, q4: 89 },
-  { id: "22", name: "Villanueva, Ryan Carlo", lrn: "102345678922", q1: 81, q2: 83, q3: 82, q4: 84 },
-  { id: "23", name: "Wong, Andrea Faith", lrn: "102345678923", q1: 73, q2: 71, q3: 74, q4: 72 },
-  { id: "24", name: "Yap, Christian Dale", lrn: "102345678924", q1: 86, q2: 85, q3: 87, q4: 88 },
-  { id: "25", name: "Zamora, Samantha Mae", lrn: "102345678925", q1: 92, q2: 90, q3: 93, q4: 91 },
-  { id: "26", name: "Alvarez, Joshua Miguel", lrn: "102345678926", q1: 80, q2: 82, q3: 81, q4: 79 },
-  { id: "27", name: "Bernardo, Kristine Joy", lrn: "102345678927", q1: 94, q2: 95, q3: 96, q4: 94 },
+  { id: "1", name: "Abad, Maria Clarita", lrn: "102345678901", t1: 76, t2: 74, t3: 76 },
+  { id: "2", name: "Aquino, Juan Miguel", lrn: "102345678902", t1: 94, t2: 91, t3: 87 },
+  { id: "3", name: "Bautista, Lourdes Mae", lrn: "102345678903", t1: 84, t2: 83, t3: 89 },
+  { id: "4", name: "Cruz, Reginald Paolo", lrn: "102345678904", t1: 83, t2: 75, t3: 82 },
+  { id: "5", name: "De Leon, Angelica Joy", lrn: "102345678905", t1: 95, t2: 94, t3: 97 },
+  { id: "6", name: "Enriquez, Francis Andrei", lrn: "102345678906", t1: 78, t2: 75, t3: 81 },
+  { id: "7", name: "Flores, Hannah Grace", lrn: "102345678907", t1: 86, t2: 82, t3: 81 },
+  { id: "8", name: "Garcia, Kristopher Jay", lrn: "102345678908", t1: 87, t2: 95, t3: 91 },
+  { id: "9", name: "Hernandez, Sofia Lyn", lrn: "102345678909", t1: 92, t2: 95, t3: 95 },
+  { id: "10", name: "Ignacio, Robert Louis", lrn: "102345678910", t1: 93, t2: 95, t3: 97 },
+  { id: "11", name: "Jimenez, Patricia Ann", lrn: "102345678911", t1: 88, t2: 86, t3: 84 },
+  { id: "12", name: "Kalaw, Benjamin Jose", lrn: "102345678912", t1: 79, t2: 77, t3: 78 },
+  { id: "13", name: "Lopez, Catherine May", lrn: "102345678913", t1: 91, t2: 93, t3: 90 },
+  { id: "14", name: "Mendoza, Rafael Luis", lrn: "102345678914", t1: 85, t2: 87, t3: 86 },
+  { id: "15", name: "Navarro, Isabel Marie", lrn: "102345678915", t1: 96, t2: 94, t3: 95 },
+  { id: "16", name: "Ocampo, Daniel Marco", lrn: "102345678916", t1: 74, t2: 72, t3: 73 },
+  { id: "17", name: "Perez, Jasmine Nicole", lrn: "102345678917", t1: 82, t2: 84, t3: 83 },
+  { id: "18", name: "Reyes, Emmanuel James", lrn: "102345678918", t1: 90, t2: 92, t3: 91 },
+  { id: "19", name: "Santos, Maricel Rose", lrn: "102345678919", t1: 77, t2: 79, t3: 78 },
+  { id: "20", name: "Torres, Adrian Paul", lrn: "102345678920", t1: 95, t2: 96, t3: 94 },
+  { id: "21", name: "Uy, Michelle Grace", lrn: "102345678921", t1: 89, t2: 88, t3: 90 },
+  { id: "22", name: "Villanueva, Ryan Carlo", lrn: "102345678922", t1: 81, t2: 83, t3: 82 },
+  { id: "23", name: "Wong, Andrea Faith", lrn: "102345678923", t1: 73, t2: 71, t3: 74 },
+  { id: "24", name: "Yap, Christian Dale", lrn: "102345678924", t1: 86, t2: 85, t3: 87 },
+  { id: "25", name: "Zamora, Samantha Mae", lrn: "102345678925", t1: 92, t2: 90, t3: 93 },
+  { id: "26", name: "Alvarez, Joshua Miguel", lrn: "102345678926", t1: 80, t2: 82, t3: 81 },
+  { id: "27", name: "Bernardo, Kristine Joy", lrn: "102345678927", t1: 94, t2: 95, t3: 96 },
 ];
 
 export function getGrades(_sectionId: string, _subject: string): StudentGrade[] {
@@ -65,11 +64,11 @@ export function getGrades(_sectionId: string, _subject: string): StudentGrade[] 
 }
 
 export function getFinalAverage(grade: StudentGrade): number | null {
-  const quarters = [grade.q1, grade.q2, grade.q3, grade.q4].filter(
-    (q): q is number => q !== null
+  const terms = [grade.t1, grade.t2, grade.t3].filter(
+    (t): t is number => t !== null
   );
-  if (quarters.length === 0) return null;
-  return quarters.reduce((a, b) => a + b, 0) / quarters.length;
+  if (terms.length === 0) return null;
+  return terms.reduce((a, b) => a + b, 0) / terms.length;
 }
 
 export function getDescriptor(grade: number): string {

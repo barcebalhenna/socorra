@@ -83,13 +83,12 @@ export const sectionMPSData = [
   },
 ];
 
-// ─── Quarterly Trend Data ─────────────────────────────────────────────────────
+// ─── Term Trend Data ──────────────────────────────────────────────────────────
 
-export const quarterlyTrendData = [
-  { quarter: "Q1", Mathematics: 59.2, English: 66.1, Science: 63.5, Filipino: 70.8 },
-  { quarter: "Q2", Mathematics: 60.1, English: 67.3, Science: 64.8, Filipino: 71.5 },
-  { quarter: "Q3", Mathematics: 60.8, English: 68.0, Science: 65.9, Filipino: 72.1 },
-  { quarter: "Q4", Mathematics: 61.2, English: 68.3, Science: 65.7, Filipino: 72.4 },
+export const termTrendData = [
+  { term: "Term 1", Mathematics: 59.2, English: 66.1, Science: 63.5, Filipino: 70.8 },
+  { term: "Term 2", Mathematics: 60.1, English: 67.3, Science: 64.8, Filipino: 71.5 },
+  { term: "Term 3", Mathematics: 61.2, English: 68.3, Science: 65.7, Filipino: 72.4 },
 ];
 
 // ─── Least Learned Competencies ───────────────────────────────────────────────
@@ -102,7 +101,7 @@ export interface LeastLearned {
   subject: string;
   gradeLevel: string;
   section: string;
-  quarter: string;
+  term: string;
   percentStruggling: number;
   interventionStatus: "Pending" | "In Progress" | "Resolved";
 }
@@ -116,7 +115,7 @@ export const leastLearnedData: LeastLearned[] = [
     subject: "Mathematics",
     gradeLevel: "Grade 9",
     section: "Mabini (Gr. 9)",
-    quarter: "Q1",
+    term: "Term 1",
     percentStruggling: 71.4,
     interventionStatus: "In Progress",
   },
@@ -128,7 +127,7 @@ export const leastLearnedData: LeastLearned[] = [
     subject: "Science",
     gradeLevel: "Grade 9",
     section: "Mabini (Gr. 9)",
-    quarter: "Q2",
+    term: "Term 2",
     percentStruggling: 68.9,
     interventionStatus: "Pending",
   },
@@ -140,7 +139,7 @@ export const leastLearnedData: LeastLearned[] = [
     subject: "English",
     gradeLevel: "Grade 8",
     section: "Bonifacio (Gr. 8)",
-    quarter: "Q3",
+    term: "Term 3",
     percentStruggling: 65.2,
     interventionStatus: "In Progress",
   },
@@ -152,7 +151,7 @@ export const leastLearnedData: LeastLearned[] = [
     subject: "Mathematics",
     gradeLevel: "Grade 8",
     section: "Bonifacio (Gr. 8)",
-    quarter: "Q2",
+    term: "Term 2",
     percentStruggling: 63.7,
     interventionStatus: "Pending",
   },
@@ -164,7 +163,7 @@ export const leastLearnedData: LeastLearned[] = [
     subject: "Science",
     gradeLevel: "Grade 8",
     section: "Bonifacio (Gr. 8)",
-    quarter: "Q2",
+    term: "Term 2",
     percentStruggling: 61.3,
     interventionStatus: "Resolved",
   },
@@ -176,7 +175,7 @@ export const leastLearnedData: LeastLearned[] = [
     subject: "Filipino",
     gradeLevel: "Grade 7",
     section: "Rizal (Gr. 7)",
-    quarter: "Q3",
+    term: "Term 3",
     percentStruggling: 58.8,
     interventionStatus: "In Progress",
   },
@@ -188,7 +187,7 @@ export const leastLearnedData: LeastLearned[] = [
     subject: "Araling Panlipunan",
     gradeLevel: "Grade 7",
     section: "Rizal (Gr. 7)",
-    quarter: "Q3",
+    term: "Term 3",
     percentStruggling: 56.1,
     interventionStatus: "Pending",
   },
@@ -200,7 +199,7 @@ export const leastLearnedData: LeastLearned[] = [
     subject: "Mathematics",
     gradeLevel: "Grade 8",
     section: "Bonifacio (Gr. 8)",
-    quarter: "Q4",
+    term: "Term 3",
     percentStruggling: 54.9,
     interventionStatus: "Pending",
   },
@@ -212,7 +211,7 @@ export const leastLearnedData: LeastLearned[] = [
     subject: "English",
     gradeLevel: "Grade 7",
     section: "Rizal (Gr. 7)",
-    quarter: "Q4",
+    term: "Term 3",
     percentStruggling: 52.3,
     interventionStatus: "In Progress",
   },
@@ -224,7 +223,7 @@ export const leastLearnedData: LeastLearned[] = [
     subject: "Science",
     gradeLevel: "Grade 7",
     section: "Rizal (Gr. 7)",
-    quarter: "Q1",
+    term: "Term 1",
     percentStruggling: 50.4,
     interventionStatus: "Resolved",
   },
@@ -236,7 +235,7 @@ export const leastLearnedData: LeastLearned[] = [
     subject: "Mathematics",
     gradeLevel: "Grade 7",
     section: "Rizal (Gr. 7)",
-    quarter: "Q2",
+    term: "Term 2",
     percentStruggling: 48.7,
     interventionStatus: "Resolved",
   },
@@ -248,7 +247,7 @@ export const leastLearnedData: LeastLearned[] = [
     subject: "English",
     gradeLevel: "Grade 8",
     section: "Bonifacio (Gr. 8)",
-    quarter: "Q1",
+    term: "Term 1",
     percentStruggling: 46.2,
     interventionStatus: "Resolved",
   },

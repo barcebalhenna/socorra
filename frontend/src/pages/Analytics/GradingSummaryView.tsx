@@ -19,8 +19,8 @@ import {
   Award,
 } from "lucide-react";
 
-const QUARTERS = ["Q1", "Q2", "Q3", "Q4"] as const;
-type Quarter = (typeof QUARTERS)[number];
+const TERMS = ["T1", "T2", "T3"] as const;
+type Term = (typeof TERMS)[number];
 
 const DESCRIPTOR_COLORS: Record<string, string> = {
   Outstanding: "text-[#166534] bg-[#dcfce7] border border-[#86efac]",
@@ -108,7 +108,7 @@ function GradingSummary() {
   const [academicYear, setAcademicYear] = useState(ACADEMIC_YEARS[0]);
   const [sectionId, setSectionId] = useState(SECTIONS[0].id);
   const [subject, setSubject] = useState(SUBJECTS[0]);
-  const [activeQuarter, setActiveQuarter] = useState<Quarter | "All">("All");
+  const [activeQuarter, setActiveQuarter] = useState<Term | "All">("All");
   const [search, setSearch] = useState("");
 
   const grades = useMemo(
@@ -125,14 +125,13 @@ function GradingSummary() {
     );
   }, [grades, search]);
 
-  const quarterKey: Record<Quarter, keyof StudentGrade> = {
-    Q1: "q1",
-    Q2: "q2",
-    Q3: "q3",
-    Q4: "q4",
+  const quarterKey: Record<Term, keyof StudentGrade> = {
+    T1: "t1",
+    T2: "t2",
+    T3: "t3",
   };
 
-  const showQ = (q: Quarter) => activeQuarter === "All" || activeQuarter === q;
+  const showQ = (q: Term) => activeQuarter === "All" || activeQuarter === q;
 
   const classAvg = useMemo(() => {
     const avgs = filtered
@@ -155,7 +154,7 @@ function GradingSummary() {
               Grading Summary
             </h2>
             <p className="text-[13px] text-[#6b7a8d] mt-0.5">
-              Philippine DepEd K–12 Curriculum · Quarterly Grade Report
+              Philippine DepEd K–12 Curriculum · Term Grade Report
             </p>
           </div>
           <button className="flex items-center gap-2 text-sm text-[#2563eb] border border-[#2563eb]/30 bg-[#eff6ff] hover:bg-[#dbeafe] rounded-lg px-4 py-2 transition-colors self-start">
@@ -234,12 +233,12 @@ function GradingSummary() {
         </div>
       </div>
 
-      {/* Quarter Tabs */}
+      {/* Term Tabs */}
       <div className="px-6 pt-4 flex items-center gap-1 border-b border-[#f0f4f9]">
-        {(["All", ...QUARTERS] as const).map((q) => (
+        {(["All", ...TERMS] as const).map((q) => (
           <button
             key={q}
-            onClick={() => setActiveQuarter(q as Quarter | "All")}
+            onClick={() => setActiveQuarter(q as Term | "All")}
             className={`px-4 py-2.5 text-sm rounded-t-lg transition-all relative ${
               activeQuarter === q
                 ? "text-[#2563eb] bg-[#eff6ff]"
@@ -247,7 +246,7 @@ function GradingSummary() {
             }`}
             style={{ fontWeight: activeQuarter === q ? 600 : 400 }}
           >
-            {q === "All" ? "All Quarters" : `Quarter ${q.replace("Q", "")}`}
+            {q === "All" ? "All Terms" : `Term ${q.replace("T", "")}`}
             {activeQuarter === q && (
               <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#2563eb] rounded-t" />
             )}
@@ -282,7 +281,7 @@ function GradingSummary() {
               >
                 LRN
               </th>
-              {QUARTERS.filter((q) => showQ(q)).map((q) => (
+              {TERMS.filter((q) => showQ(q)).map((q) => (
                 <th
                   key={q}
                   className="text-center px-4 py-3 text-[11px] uppercase tracking-wider whitespace-nowrap"
@@ -290,22 +289,18 @@ function GradingSummary() {
                 >
                   <span
                     className={`px-2.5 py-1 rounded-md ${
-                      q === "Q1"
+                      q === "T1"
                         ? "text-[#1d4ed8] bg-[#dbeafe]"
-                        : q === "Q2"
+                        : q === "T2"
                         ? "text-[#065f46] bg-[#d1fae5]"
-                        : q === "Q3"
-                        ? "text-[#7c2d12] bg-[#ffedd5]"
-                        : "text-[#581c87] bg-[#ede9fe]"
+                        : "text-[#7c2d12] bg-[#ffedd5]"
                     }`}
                   >
-                    {q === "Q1"
-                      ? "1st Quarter"
-                      : q === "Q2"
-                      ? "2nd Quarter"
-                      : q === "Q3"
-                      ? "3rd Quarter"
-                      : "4th Quarter"}
+                    {q === "T1"
+                      ? "1st Term"
+                      : q === "T2"
+                      ? "2nd Term"
+                      : "3rd Term"}
                   </span>
                 </th>
               ))}
@@ -362,7 +357,7 @@ function GradingSummary() {
                     <td className="px-4 py-3.5 text-[#6b7a8d] text-xs tabular-nums whitespace-nowrap">
                       {grade.lrn}
                     </td>
-                    {QUARTERS.filter((q) => showQ(q)).map((q) => (
+                    {TERMS.filter((q) => showQ(q)).map((q) => (
                       <td key={q} className="px-4 py-3.5 text-center">
                         <GradeCell
                           value={grade[quarterKey[q]] as number | null}
@@ -508,7 +503,7 @@ export default function GradingSummaryView() {
             Grading Summary
           </h1>
           <p className="text-[#6b7a8d] mt-2 text-base">
-            Manage and view student grades per quarter following the DepEd K–12 grading framework.
+            Manage and view student grades per term following the DepEd K–12 grading framework.
           </p>
         </div>
         <div className="flex items-center gap-2 px-3 py-1.5 bg-[#eff6ff] border border-[#2563eb]/20 rounded-lg">
